@@ -12,9 +12,9 @@
 #
 class Actor < ApplicationRecord
   validates(:name, presence: true)
+  has_many(:movie)
+  has_many(:characters)
+  has_many :filmography, :through => :characters, :source => :movie
 
-  has_many(:characters, :class_name => "Character")
-  has_many(:filmography, :class_name => "Movie")
 
-  end
 end
